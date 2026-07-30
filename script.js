@@ -37,10 +37,3 @@ if ('IntersectionObserver' in window) {
   revealTargets.forEach((el) => el.classList.add('is-visible'));
 }
 
-// Warn (in console only) if resume.pdf placeholder hasn't been replaced
-const resumeLink = document.getElementById('resumeLink');
-if (resumeLink) {
-  resumeLink.addEventListener('click', (e) => {
-    // no-op — left for the site owner to replace resume.pdf with a real file
-  });
-}
