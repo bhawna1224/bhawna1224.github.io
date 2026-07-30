@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawna Bhauryal — Quantitative &amp; Applied ML Engineering</title>
+<meta name="description" content="Portfolio of Bhawna Bhauryal — backtesting engines, applied computer vision, and data-driven ML systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-bg" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-mark">BB<span class="nav-mark-dot">·</span></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="#quant">Quant &amp; Finance</a>
+    <a href="#applied-ml">Applied ML / CV</a>
+    <a href="#nlp">NLP / AI</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <p class="eyebrow">CS GRADUATE &mdash; B.SC. (HONS) WITH RESEARCH &mdash; GPA 8.94/10</p>
+    <h1 class="hero-title">Bhawna Bhauryal</h1>
+    <p class="hero-role">Quantitative Developer &amp; Applied ML Engineer</p>
+    <p class="hero-statement">
+      I landed in computer science by circumstance, not by design &mdash; but once there, I chose to point it at markets: rigorous, data-driven, and unforgiving of sloppy reasoning. I'm now building the quant/fintech engineering skills to match that choice, one backtested strategy and one calibrated model at a time.
+    </p>
+    <div class="hero-cta">
+      <a href="#quant" class="btn btn-primary">View projects</a>
+      <a href="resume.pdf" class="btn btn-ghost" id="resumeLink">Download resume</a>
+      <a href="https://github.com/bhawna1224" class="btn btn-ghost" target="_blank" rel="noopener">GitHub &rarr;</a>
+    </div>
+  </div>
+
+  <div class="hero-panel" aria-hidden="true">
+    <div class="bracket bracket-tl"></div>
+    <div class="bracket bracket-tr"></div>
+    <div class="bracket bracket-bl"></div>
+    <div class="bracket bracket-br"></div>
+    <p class="panel-label">BACKTEST READOUT &mdash; AAPL, 2020&ndash;2024 &mdash; ILLUSTRATIVE</p>
+    <svg viewBox="0 0 460 220" class="equity-svg" id="equitySvg">
+      <line x1="0" y1="55" x2="460" y2="55" class="grid-line"/>
+      <line x1="0" y1="110" x2="460" y2="110" class="grid-line"/>
+      <line x1="0" y1="165" x2="460" y2="165" class="grid-line"/>
+      <path id="benchPath" class="bench-path" d="M0,170 C 90,150 150,120 200,95 C 260,68 320,45 460,10" />
+      <path id="stratPath" class="strat-path" d="M0,170 C 90,160 150,150 200,140 C 260,128 320,120 460,95" />
+      <circle cx="460" cy="10" r="3.5" class="dot dot-bench"/>
+      <circle cx="460" cy="95" r="3.5" class="dot dot-strat"/>
+    </svg>
+    <div class="panel-legend">
+      <span><i class="swatch swatch-bench"></i>Buy &amp; hold &mdash; $283,710</span>
+      <span><i class="swatch swatch-strat"></i>MA crossover &mdash; $165,560</span>
+    </div>
+    <div class="panel-metrics">
+      <div><b>0.72</b><small>Sharpe</small></div>
+      <div><b>29.8%</b><small>Max DD</small></div>
+      <div><b>60%</b><small>Win rate</small></div>
+      <div><b>4.93</b><small>Profit factor</small></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ TRACK: QUANT & FINANCE ============ -->
+<section class="section" id="quant">
+  <div class="section-head">
+    <p class="eyebrow">TRACK &mdash; QUANT &amp; FINANCIAL ANALYTICS</p>
+    <h2>Testing ideas the way markets test them</h2>
+  </div>
+
+  <article class="card card-featured">
+    <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+    <div class="card-head">
+      <h3>Backtesting Engine</h3>
+      <a href="https://github.com/bhawna1224/backtesting-engine" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+    </div>
+    <p class="card-tag">Vectorized Python &middot; Pandas &middot; pytest</p>
+    <p class="card-problem"><b>Problem.</b> Most self-taught backtests quietly leak future information into their signals and report returns with no honest benchmark &mdash; which makes them worthless as evidence of skill.</p>
+    <p class="card-approach"><b>Approach.</b> Built a vectorized backtesting engine with strict signal-shifting to prevent lookahead bias, a pluggable strategy interface, transaction-cost modeling, and a pytest suite covering strategy logic, engine mechanics, and the performance math itself. Implemented a 20/50-day Moving Average Crossover as the reference strategy. The architecture is laid out for an event-driven engine next (Market&nbsp;&rarr;&nbsp;Signal&nbsp;&rarr;&nbsp;Order&nbsp;&rarr;&nbsp;Fill), not yet built.</p>
+    <div class="readout">
+      <div><b>0.72</b><small>Sharpe ratio</small></div>
+      <div><b>29.8%</b><small>Max drawdown</small></div>
+      <div><b>60%</b><small>Win rate (10 trades)</small></div>
+      <div><b>4.93</b><small>Profit factor</small></div>
+    </div>
+    <p class="card-note">Run on AAPL, 2020&ndash;2024, $100k capital. Reported honestly against its own buy-and-hold benchmark, which returned more (Sharpe 1.03, +183.71%) &mdash; the point of the engine is correct measurement, not a cherry-picked win.</p>
+    <p class="card-why"><b>Why it matters here.</b> This is the actual mechanics a quant/trading-systems interview probes: bias-free signal construction, risk-adjusted metrics, and reporting a strategy's real performance rather than its best-looking number.</p>
+  </article>
+
+  <div class="card-grid">
+    <article class="card">
+      <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+      <div class="card-head">
+        <h3>End-to-End Sales Forecasting</h3>
+        <a href="https://github.com/bhawna1224/END-TO-END-SALES-FORECASTING-SOLUTION" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+      </div>
+      <p class="card-tag">XGBoost &middot; SARIMA &middot; Prophet &middot; Optuna</p>
+      <p class="card-problem"><b>Problem.</b> Store-level demand forecasting (Rossmann dataset) needs to generalize across time, not just fit historical noise.</p>
+      <p class="card-approach"><b>Approach.</b> Built and ensembled three modelling families &mdash; XGBoost, SARIMA, and Prophet &mdash; validated with strict time-based (not random) train/validation splits and per-store cross-validation, with Optuna for hyperparameter search.</p>
+      <p class="card-result"><b>Result.</b> Final RMSE/MAPE not yet published in the repo &mdash; methodology and code are complete and documented; benchmark numbers to follow.</p>
+      <p class="card-why"><b>Why it matters.</b> Forecasting discipline &mdash; avoiding leakage, validating on time, not shuffled folds &mdash; is the same discipline risk and market-data teams need.</p>
+    </article>
+
+    <article class="card">
+      <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+      <div class="card-head">
+        <h3>Consent Transparency Engine</h3>
+        <a href="https://github.com/bhawna1224/consent-transparency-engine" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+      </div>
+      <p class="card-tag">React &middot; FastAPI &middot; Rule-based scoring &middot; Hackathon build</p>
+      <p class="card-problem"><b>Problem.</b> Consent and data-sharing agreements bury risk in dense legal language that most users never read.</p>
+      <p class="card-approach"><b>Approach.</b> Built at a hackathon: a deterministic, explainable rule-based risk-scoring pipeline over extracted clauses &mdash; deliberately not LLM-based parsing, chosen for reliability under a hard time constraint.</p>
+      <p class="card-result"><b>Result.</b> Working prototype with transparent, rule-traceable risk scores rather than a black-box judgment.</p>
+      <p class="card-why"><b>Why it matters.</b> A RegTech/compliance-analytics angle &mdash; explainability-first design is exactly what risk and compliance functions in fintech demand.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ TRACK: APPLIED ML / CV ============ -->
+<section class="section" id="applied-ml">
+  <div class="section-head">
+    <p class="eyebrow">TRACK &mdash; APPLIED ML &amp; COMPUTER VISION</p>
+    <h2>Turning noisy signals into calibrated numbers</h2>
+  </div>
+
+  <div class="card-grid">
+    <article class="card">
+      <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+      <div class="card-head">
+        <h3>Single-Camera 3D Object Measurement</h3>
+        <span class="card-tag-inline">Capgemini &middot; Feb&ndash;Mar 2026</span>
+      </div>
+      <p class="card-tag">OpenCV &middot; Camera calibration &middot; PnP &middot; Projective geometry</p>
+      <p class="card-problem"><b>Problem.</b> Estimate a real object's length, breadth, and height from a single uncalibrated consumer camera &mdash; no depth sensor, no learned depth model.</p>
+      <p class="card-approach"><b>Approach.</b> After testing and setting aside COLMAP/Structure-from-Motion, shape-from-shading, NeRF, and monocular depth models (MiDaS, DepthAnything) &mdash; each unstable or infeasible for the constraints &mdash; landed on a deterministic geometry pipeline: camera calibration, an ArUco floor marker for world scale, PnP pose estimation, and ray&ndash;plane intersection for metric measurement from a single frame.</p>
+      <div class="readout readout-sm">
+        <div><b>88.89%</b><small>Measurement accuracy</small></div>
+        <div><b>1.31</b><small>RMSE</small></div>
+      </div>
+      <p class="card-why"><b>Why it matters.</b> Same instinct quant/market-data roles need: convert a noisy real-world measurement into a calibrated, verifiable number, and be able to explain exactly why each simpler approach was rejected.</p>
+    </article>
+
+    <article class="card">
+      <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+      <div class="card-head">
+        <h3>Analysis Recommendation Engine <span class="dim">(Dissertation)</span></h3>
+        <a href="https://github.com/bhawna1224/AutoInsight-Automated-Analysis-Recommendation-for-E-Commerce-Data" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+      </div>
+      <p class="card-tag">Rule-based AKB &middot; Random Forest &middot; LLM reasoning</p>
+      <p class="card-problem"><b>Problem.</b> Non-technical users can't reliably choose the right analytical method for a given e-commerce dataset.</p>
+      <p class="card-approach"><b>Approach.</b> Designed and independently built three competing recommendation paradigms &mdash; a deterministic rule-based Analysis Knowledge Base, a Random Forest classifier over structural dataset features, and an LLM-based contextual reasoner &mdash; each with defined success criteria set before evaluation, then compared head-to-head on the same datasets.</p>
+      <p class="card-result"><b>Result.</b> A working comparative framework across all three paradigms; per-model quantitative benchmarks are documented in the full dissertation.</p>
+      <p class="card-why"><b>Why it matters.</b> Research discipline &mdash; defining success criteria up front and evaluating honestly instead of asserting the fanciest method wins.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ TRACK: NLP / AI ============ -->
+<section class="section" id="nlp">
+  <div class="section-head">
+    <p class="eyebrow">TRACK &mdash; NLP &amp; APPLIED AI ENGINEERING</p>
+    <h2>Evaluation before enthusiasm</h2>
+  </div>
+
+  <div class="card-grid">
+    <article class="card">
+      <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+      <div class="card-head">
+        <h3>Reddit Persona Generator</h3>
+        <a href="https://github.com/bhawna1224/reddit-persona-generator" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+      </div>
+      <p class="card-tag">LLM application &middot; Evidence-binding &middot; Evaluation framework</p>
+      <p class="card-problem"><b>Problem.</b> LLM-generated user personas are easy to make and easy to make up &mdash; hallucinated traits look just as confident as grounded ones.</p>
+      <p class="card-approach"><b>Approach.</b> Built evidence-binding so every generated trait traces back to a real source post, plus an explicit evaluation framework: citation coverage, calibration checks, and reproducibility measured via Jaccard similarity across repeated runs.</p>
+      <p class="card-why"><b>Why it matters.</b> Shows engineering maturity beyond "call the API" &mdash; treating hallucination and reproducibility as measurable properties, not vibes.</p>
+    </article>
+
+    <article class="card">
+      <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+      <div class="card-head">
+        <h3>Sarcasm Detection</h3>
+        <a href="https://github.com/bhawna1224/Sarcasm-Detection" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+      </div>
+      <p class="card-tag">CNN-BiLSTM + Attention &middot; Word2Vec</p>
+      <p class="card-problem"><b>Problem.</b> Sarcasm detection in short text headlines, where literal wording contradicts intended meaning.</p>
+      <p class="card-approach"><b>Approach.</b> Hybrid CNN&ndash;BiLSTM architecture with an attention layer over Word2Vec embeddings, trained on the Kaggle Sarcasm Headlines dataset.</p>
+      <div class="readout readout-sm">
+        <div><b>86%</b><small>Test accuracy</small></div>
+      </div>
+      <p class="card-why"><b>Why it matters.</b> Solid, complete applied deep-learning fundamentals &mdash; the kind of general ML/DS signal that keeps the non-finance door open.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="section" id="experience">
+  <div class="section-head">
+    <p class="eyebrow">EXPERIENCE</p>
+    <h2>Where the numbers above came from</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <p class="timeline-date">JUL 2024 &ndash; DEC 2024</p>
+      <h3>Adizen.ai &mdash; Software / BI Intern</h3>
+      <ul>
+        <li>Migrated core controllers from Payload to Mongoose, cutting response times on critical APIs by <b>~30%</b>.</li>
+        <li>Restructured the backend into modular routers with audit logging (created_by/updated_by hooks) across AMS and EMR modules.</li>
+        <li>Built real-time Metabase dashboards for invoicing and staff analytics; added filtering and credit-note correction to invoice reporting.</li>
+        <li>Authored Cypress end-to-end tests for team/group creation, patient-level updates, and session recording.</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-date">FEB &ndash; MAR 2026</p>
+      <h3>Capgemini &mdash; Data / Computer Vision Intern</h3>
+      <ul>
+        <li>Ran EDA on a ~2M-record, 16-feature synthetic network telemetry dataset; halved memory footprint via dtype downcasting and engineered anomaly-relevant features (byte ratios, risky-port flags).</li>
+        <li>Built a single-camera 3D object measurement POC (camera calibration + ArUco/PnP + ray&ndash;plane geometry) reaching <b>88.89% accuracy, RMSE 1.31</b>, after iterating past COLMAP, SfM, NeRF, and monocular depth-model approaches.</li>
+        <li>Trained an SSD MobileNetV2 detector (TensorFlow OD API) on an 80K-image, 5-class dataset; diagnosed severe class imbalance (person ~10&times; overrepresented) as the primary driver of inconsistent per-class detection performance.</li>
+        <li>Studied regression-diagnostics methods (Cook's Distance, leverage, studentized residuals) to distinguish genuine anomalies from influential-but-valid observations in the telemetry data.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OTHER PROJECTS ============ -->
+<section class="section section-other">
+  <div class="section-head">
+    <p class="eyebrow">OTHER PROJECTS</p>
+    <h2>Breadth</h2>
+  </div>
+  <div class="chip-row">
+    <a href="https://github.com/bhawna1224/chat-n-schedule" target="_blank" rel="noopener" class="chip">chat-n-schedule <small>LangGraph agent + Google Calendar</small></a>
+    <a href="https://github.com/bhawna1224/BlockTrace" target="_blank" rel="noopener" class="chip">BlockTrace <small>Solidity supply-chain DApp</small></a>
+    <a href="https://github.com/bhawna1224/book-review-platform" target="_blank" rel="noopener" class="chip">book-review-platform <small>Full-stack CRUD app</small></a>
+    <a href="https://github.com/bhawna1224/AR_Shopping_App" target="_blank" rel="noopener" class="chip">AR_Shopping_App <small>Augmented-reality product preview</small></a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER / CONTACT ============ -->
+<footer class="footer" id="contact">
+  <div class="footer-grid">
+    <div>
+      <p class="eyebrow">GET IN TOUCH</p>
+      <h2>Let's talk.</h2>
+      <div class="footer-links">
+        <a href="mailto:your.email@example.com">your.email@example.com</a>
+        <a href="https://linkedin.com/in/your-linkedin-handle" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+        <a href="https://github.com/bhawna1224" target="_blank" rel="noopener">GitHub &rarr;</a>
+        <a href="resume.pdf">Resume (PDF) &rarr;</a>
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow">SKILLS</p>
+      <p class="skills-list">
+        Python &middot; Pandas / NumPy &middot; scikit-learn &middot; PyTorch &middot; TensorFlow &middot; OpenCV &middot;
+        SQL &middot; XGBoost / Prophet / SARIMA &middot; Flask / FastAPI &middot; React &middot; Git
+      </p>
+    </div>
+  </div>
+  <p class="footer-note">Built by Bhawna Bhauryal. All metrics on this page are reported from real project runs, benchmarked honestly &mdash; including where the results weren't flattering.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
