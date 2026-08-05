@@ -291,23 +291,23 @@
         SQL &middot; kdb+/q &middot; MCP (Model Context Protocol) &middot; XGBoost / Prophet / SARIMA &middot;
         Flask / FastAPI &middot; React &middot; Git
       </p>
+      <p class="footer-views">
+         <span id="view-count">—</span> views
+     </p>
+
+        <script>
+        fetch('https://bhawna1224.goatcounter.com/counter/TOTAL.json')
+          .then(r => r.json())
+          .then(d => {
+            document.getElementById('view-count').textContent = d.count;
+          })
+          .catch(() => {
+            document.getElementById('view-count').parentElement.style.display = 'none';
+          });
+        </script>
     </div>
   </div>
   <p class="footer-note">Built by Bhawna Bhauryal. All metrics on this page are reported from real project runs, benchmarked honestly &mdash; including where the results weren't flattering.</p>
-  <p class="footer-views">
-  <span id="view-count">—</span> views
-</p>
-
-<script>
-fetch('https://bhawna1224.goatcounter.com/counter/TOTAL.json')
-  .then(r => r.json())
-  .then(d => {
-    document.getElementById('view-count').textContent = d.count;
-  })
-  .catch(() => {
-    document.getElementById('view-count').parentElement.style.display = 'none';
-  });
-</script>
 </footer>
 
 <script src="script.js"></script>
