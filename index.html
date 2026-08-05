@@ -77,57 +77,74 @@
 
 <!-- ============ TRACK: QUANT & FINANCE ============ -->
 <section class="section" id="quant">
-  <div class="section-head">
-    <p class="eyebrow">TRACK &mdash; QUANT &amp; FINANCIAL ANALYTICS</p>
-    <h2>Testing ideas the way markets test them</h2>
-  </div>
+<div class="section-head">
+<p class="eyebrow">TRACK &mdash; QUANT &amp; FINANCIAL ANALYTICS</p>
+<h2>Testing ideas the way markets test them</h2>
+</div>
 
-  <article class="card card-featured">
-    <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
-    <div class="card-head">
-      <h3>Backtesting Engine</h3>
-      <a href="https://github.com/bhawna1224/backtesting-engine" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
-    </div>
-    <p class="card-tag">Vectorized Python &middot; Pandas &middot; pytest</p>
-    <p class="card-problem"><b>Problem.</b> Most self-taught backtests quietly leak future information into their signals and report returns with no honest benchmark &mdash; which makes them worthless as evidence of skill.</p>
-    <p class="card-approach"><b>Approach.</b> Built a vectorized backtesting engine with strict signal-shifting to prevent lookahead bias, a pluggable strategy interface, transaction-cost modeling, and a pytest suite covering strategy logic, engine mechanics, and the performance math itself. Implemented a 20/50-day Moving Average Crossover as the reference strategy. The architecture is laid out for an event-driven engine next (Market&nbsp;&rarr;&nbsp;Signal&nbsp;&rarr;&nbsp;Order&nbsp;&rarr;&nbsp;Fill), not yet built.</p>
-    <div class="readout">
-      <div><b>0.72</b><small>Sharpe ratio</small></div>
-      <div><b>29.8%</b><small>Max drawdown</small></div>
-      <div><b>60%</b><small>Win rate (10 trades)</small></div>
-      <div><b>4.93</b><small>Profit factor</small></div>
-    </div>
-    <p class="card-note">Run on AAPL, 2020&ndash;2024, $100k capital. Reported honestly against its own buy-and-hold benchmark, which returned more (Sharpe 1.03, +183.71%) &mdash; the point of the engine is correct measurement, not a cherry-picked win.</p>
-    <p class="card-why"><b>Why it matters here.</b> This is the actual mechanics a quant/trading-systems interview probes: bias-free signal construction, risk-adjusted metrics, and reporting a strategy's real performance rather than its best-looking number.</p>
-  </article>
+<article class="card card-featured">
+<div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+<div class="card-head">
+<h3>Agentic kdb+/q Trading System</h3>
+<a href="https://github.com/bhawna1224/kdb-x-mcp-server" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+</div>
+<p class="card-tag">kdb+/q &middot; MCP (Model Context Protocol) &middot; Python &middot; extends KX Systems' official server</p>
+<p class="card-problem"><b>Problem.</b> Manually tuning a trading strategy's parameters is slow and unprincipled &mdash; and most "autonomous agent" demos never get tested past the happy path, so no one actually knows whether the agent reasons correctly when a strategy fails or the infrastructure breaks.</p>
+<p class="card-approach"><b>Approach.</b> Forked KX Systems' production <code>kdb-x-mcp-server</code> and added 6 tools (<code>list_strategies</code>, <code>get_price_data</code>, <code>run_q_analytics</code>, <code>run_backtest</code>, <code>get_run_history</code>, <code>compare_runs</code>), wiring them to my own <code>backtesting-engine</code> as a local editable dependency. The tools let an LLM agent query kdb+ price data, run native q analytics, execute lookahead-safe backtests, and log/compare every run by session &mdash; everything it needs to design, test, and iterate on a strategy end to end.</p>
+<div class="readout readout-sm">
+<div><b>6</b><small>New MCP tools</small></div>
+<div><b>5+1</b><small>Validated test runs</small></div>
+</div>
+<p class="card-note">Across 5 controlled tests and 1 real-world run: found genuine Pareto-improving configs via non-monotonic search; correctly reported zero valid runs (instead of a misleading "best") when no config met a drawdown constraint, and explained why; correctly diagnosed a real infrastructure fault &mdash; stale q session state &mdash; instead of hallucinating a result. A stopping-rule bug (narrated vs. explicit counter state) was caught and fixed mid-testing.</p>
+<p class="card-why"><b>Why it matters here.</b> kdb+/q is the time-series database standard on real trading desks. This shows I can extend a real vendor's production codebase and wire an agent to genuine market-data infrastructure &mdash; and, more importantly for a research role, that I design validation tests meant to break the system rather than just demo the happy path.</p>
+</article>
 
-  <div class="card-grid">
-    <article class="card">
-      <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
-      <div class="card-head">
-        <h3>End-to-End Sales Forecasting</h3>
-        <a href="https://github.com/bhawna1224/END-TO-END-SALES-FORECASTING-SOLUTION" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
-      </div>
-      <p class="card-tag">XGBoost &middot; SARIMA &middot; Prophet &middot; Optuna</p>
-      <p class="card-problem"><b>Problem.</b> Store-level demand forecasting (Rossmann dataset) needs to generalize across time, not just fit historical noise.</p>
-      <p class="card-approach"><b>Approach.</b> Built and ensembled three modelling families &mdash; XGBoost, SARIMA, and Prophet &mdash; validated with strict time-based (not random) train/validation splits and per-store cross-validation, with Optuna for hyperparameter search.</p>
-      <p class="card-result"><b>Result.</b> Final RMSE/MAPE not yet published in the repo &mdash; methodology and code are complete and documented; benchmark numbers to follow.</p>
-      <p class="card-why"><b>Why it matters.</b> Forecasting discipline &mdash; avoiding leakage, validating on time, not shuffled folds &mdash; is the same discipline risk and market-data teams need.</p>
-    </article>
+<article class="card">
+<div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+<div class="card-head">
+<h3>Backtesting Engine</h3>
+<a href="https://github.com/bhawna1224/backtesting-engine" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+</div>
+<p class="card-tag">Vectorized Python &middot; Pandas &middot; pytest</p>
+<p class="card-problem"><b>Problem.</b> Most self-taught backtests quietly leak future information into their signals and report returns with no honest benchmark &mdash; which makes them worthless as evidence of skill.</p>
+<p class="card-approach"><b>Approach.</b> Built a vectorized backtesting engine with strict signal-shifting to prevent lookahead bias, a pluggable strategy interface, transaction-cost modeling, and a pytest suite covering strategy logic, engine mechanics, and the performance math itself. Implemented a 20/50-day Moving Average Crossover as the reference strategy.</p>
+<div class="readout">
+<div><b>0.72</b><small>Sharpe ratio</small></div>
+<div><b>29.8%</b><small>Max drawdown</small></div>
+<div><b>60%</b><small>Win rate (10 trades)</small></div>
+<div><b>4.93</b><small>Profit factor</small></div>
+</div>
+<p class="card-note">Run on AAPL, 2020&ndash;2024, $100k capital. Reported honestly against its own buy-and-hold benchmark, which returned more (Sharpe 1.03, +183.71%) &mdash; the point of the engine is correct measurement, not a cherry-picked win.</p>
+<p class="card-why"><b>Why it matters.</b> This is the execution and metrics core wired directly into the agentic trading system above &mdash; bias-free signal construction and risk-adjusted metrics, the actual mechanics a quant/trading-systems interview probes.</p>
+</article>
 
-    <article class="card">
-      <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
-      <div class="card-head">
-        <h3>Consent Transparency Engine</h3>
-        <a href="https://github.com/bhawna1224/consent-transparency-engine" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
-      </div>
-      <p class="card-tag">React &middot; FastAPI &middot; Rule-based scoring &middot; Hackathon build</p>
-      <p class="card-problem"><b>Problem.</b> Consent and data-sharing agreements bury risk in dense legal language that most users never read.</p>
-      <p class="card-approach"><b>Approach.</b> Built at a hackathon: a deterministic, explainable rule-based risk-scoring pipeline over extracted clauses &mdash; deliberately not LLM-based parsing, chosen for reliability under a hard time constraint.</p>
-      <p class="card-result"><b>Result.</b> Working prototype with transparent, rule-traceable risk scores rather than a black-box judgment.</p>
-      <p class="card-why"><b>Why it matters.</b> A RegTech/compliance-analytics angle &mdash; explainability-first design is exactly what risk and compliance functions in fintech demand.</p>
-    </article>
-  </div>
+<div class="card-grid">
+<article class="card">
+<div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+<div class="card-head">
+<h3>End-to-End Sales Forecasting</h3>
+<a href="https://github.com/bhawna1224/END-TO-END-SALES-FORECASTING-SOLUTION" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+</div>
+<p class="card-tag">XGBoost &middot; SARIMA &middot; Prophet &middot; Optuna</p>
+<p class="card-problem"><b>Problem.</b> Store-level demand forecasting (Rossmann dataset) needs to generalize across time, not just fit historical noise.</p>
+<p class="card-approach"><b>Approach.</b> Built and ensembled three modelling families &mdash; XGBoost, SARIMA, and Prophet &mdash; validated with strict time-based (not random) train/validation splits and per-store cross-validation, with Optuna for hyperparameter search.</p>
+<p class="card-result"><b>Result.</b> Final RMSE/MAPE not yet published in the repo &mdash; methodology and code are complete and documented; benchmark numbers to follow.</p>
+<p class="card-why"><b>Why it matters.</b> Forecasting discipline &mdash; avoiding leakage, validating on time, not shuffled folds &mdash; is the same discipline risk and market-data teams need.</p>
+</article>
+
+<article class="card">
+<div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+<div class="card-head">
+<h3>Consent Transparency Engine</h3>
+<a href="https://github.com/bhawna1224/consent-transparency-engine" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+</div>
+<p class="card-tag">React &middot; FastAPI &middot; Rule-based scoring &middot; Hackathon build</p>
+<p class="card-problem"><b>Problem.</b> Consent and data-sharing agreements bury risk in dense legal language that most users never read.</p>
+<p class="card-approach"><b>Approach.</b> Built at a hackathon: a deterministic, explainable rule-based risk-scoring pipeline over extracted clauses &mdash; deliberately not LLM-based parsing, chosen for reliability under a hard time constraint.</p>
+<p class="card-result"><b>Result.</b> Working prototype with transparent, rule-traceable risk scores rather than a black-box judgment.</p>
+<p class="card-why"><b>Why it matters.</b> A RegTech/compliance-analytics angle &mdash; explainability-first design is exactly what risk and compliance functions in fintech demand.</p>
+</article>
+</div>
 </section>
 
 <!-- ============ TRACK: APPLIED ML / CV ============ -->
@@ -269,7 +286,8 @@
       <p class="eyebrow">SKILLS</p>
       <p class="skills-list">
         Python &middot; Pandas / NumPy &middot; scikit-learn &middot; PyTorch &middot; TensorFlow &middot; OpenCV &middot;
-        SQL &middot; XGBoost / Prophet / SARIMA &middot; Flask / FastAPI &middot; React &middot; Git
+        SQL &middot; kdb+/q &middot; MCP (Model Context Protocol) &middot; XGBoost / Prophet / SARIMA &middot;
+        Flask / FastAPI &middot; React &middot; Git
       </p>
     </div>
   </div>
