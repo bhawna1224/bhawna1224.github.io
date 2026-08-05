@@ -10,6 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
+<script data-goatcounter="https://bhawna1224.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 <body>
 
 <div class="grid-bg" aria-hidden="true"></div>
@@ -292,6 +294,20 @@
     </div>
   </div>
   <p class="footer-note">Built by Bhawna Bhauryal. All metrics on this page are reported from real project runs, benchmarked honestly &mdash; including where the results weren't flattering.</p>
+  <p class="footer-views">
+  <span id="view-count">—</span> views
+</p>
+
+<script>
+fetch('https://YOUR-CODE.goatcounter.com/counter/TOTAL.json')
+  .then(r => r.json())
+  .then(d => {
+    document.getElementById('view-count').textContent = d.count;
+  })
+  .catch(() => {
+    document.getElementById('view-count').parentElement.style.display = 'none';
+  });
+</script>
 </footer>
 
 <script src="script.js"></script>
