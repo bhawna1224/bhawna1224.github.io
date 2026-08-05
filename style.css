@@ -369,7 +369,10 @@ h1,h2,h3{ font-family: var(--display); font-weight: 600; margin: 0 0 0.4em; colo
   border-top: 1px solid var(--line);
   padding-top: 20px;
 }
-
+.footer-readout {
+  display: inline-flex;
+  margin-top: 12px;
+}
 /* ============================================================
    Responsive
    ============================================================ */
