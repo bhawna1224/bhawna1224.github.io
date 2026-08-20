@@ -118,6 +118,19 @@
 <p class="card-why"><b>Why it matters.</b> This is the execution and metrics core wired directly into the agentic trading system above &mdash; bias-free signal construction and risk-adjusted metrics, the actual mechanics a quant/trading-systems interview probes.</p>
 </article>
 
+<article class="card">
+<div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+<div class="card-head">
+<h3>Real-Time Tick Data Pipeline (TickWatch)</h3>
+<a href="https://github.com/bhawna1224/TickWatch" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+</div>
+<p class="card-tag">kdb+/q &middot; Tickerplant / RDB / HDB &middot; Binance WebSocket &middot; Python &middot; scikit-learn</p>
+<p class="card-problem"><b>Problem.</b> Real market-data infrastructure has to ingest live ticks, survive process restarts, archive historically, and separate genuine anomalies from ordinary noise or trend &mdash; without silently breaking on the ties, skew, and non-stationarity that naive scoring methods miss on real tick data.</p>
+<p class="card-approach"><b>Approach.</b> Built kdb+/q's standard tickerplant &rarr; RDB &rarr; HDB architecture end to end: a tickerplant that logs every tick for crash recovery and auto-rolls at midnight, an RDB that replays the day's log to catch up on restart and holds live data in memory, and an HDB that archives via date-derived (not wall-clock) partitioning. A Python feed handler streams real BTC/ETH/SOL trades from Binance's public WebSocket. A parallel q anomaly detector flags extreme ticks using percentile rank &mdash; not z-score, which degenerates on tick data's frequent exact ties &mdash; over detrended, log-transformed returns and sizes, with an Isolation Forest in Python run as an independent second opinion.</p>
+<p class="card-note">No accuracy metric to report yet &mdash; there's no labeled ground truth on live data. The substance is the design iteration itself: the scoring method went through several corrections (raw price &rarr; returns, raw size &rarr; log-size, z-score &rarr; percentile rank, adding detrending), each fixing a specific way naive scoring breaks on real tick data &mdash; documented in the repo along with what's still manual (reconnection handling, EOD triggering, Isolation Forest scheduling).</p>
+<p class="card-why"><b>Why it matters.</b> This is the actual reference architecture kdb+ runs on live trading desks &mdash; not a toy dataset, a real streaming pipeline with crash recovery and archiving. It also pairs directly with the Agentic Trading System above: this is the kind of live price infrastructure that system's tools would ultimately sit on top of in production.</p>
+</article>
+
 <div class="card-grid">
 <article class="card">
 <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
