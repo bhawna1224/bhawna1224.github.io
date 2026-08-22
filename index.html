@@ -342,6 +342,55 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasHover = window.matchMedia('(hover: hover)').matches;
+
+  /* ---- Typewriter effect on the hero role line ---- */
+  var roleEl = document.querySelector('.hero-role');
+  if (roleEl && !reduceMotion) {
+    var fullText = roleEl.textContent;
+    roleEl.textContent = '';
+    var cursor = document.createElement('span');
+    cursor.className = 'type-cursor';
+    cursor.textContent = '_';
+    roleEl.appendChild(cursor);
+    var i = 0;
+    function typeNext(){
+      if (i < fullText.length){
+        cursor.insertAdjacentText('beforebegin', fullText[i]);
+        i++;
+        setTimeout(typeNext, 32);
+      } else {
+        cursor.classList.add('type-cursor-blink');
+      }
+    }
+    setTimeout(typeNext, 400);
+  }
+
+  /* ---- Subtle 3D tilt on the hero instrument panel, following the cursor ---- */
+  var panel = document.querySelector('.hero-panel');
+  if (panel && hasHover && !reduceMotion) {
+    panel.style.transformStyle = 'preserve-3d';
+    panel.style.willChange = 'transform';
+    document.querySelector('.hero').addEventListener('mousemove', function(e){
+      var rect = panel.getBoundingClientRect();
+      var cx = rect.left + rect.width / 2;
+      var cy = rect.top + rect.height / 2;
+      var dx = (e.clientX - cx) / (rect.width / 2);
+      var dy = (e.clientY - cy) / (rect.height / 2);
+      var maxTilt = 6; // degrees, kept small on purpose
+      var rotY = Math.max(-1, Math.min(1, dx)) * maxTilt;
+      var rotX = Math.max(-1, Math.min(1, dy)) * -maxTilt;
+      panel.style.transform = 'perspective(900px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
+    });
+    document.querySelector('.hero').addEventListener('mouseleave', function(){
+      panel.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
+    });
+  }
+})();
+</script>
 <script data-goatcounter="https://bhawna1224.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>        
 </body>
