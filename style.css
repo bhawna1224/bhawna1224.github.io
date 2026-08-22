@@ -514,3 +514,71 @@ h1,h2,h3{ font-family: var(--display); font-weight: 600; margin: 0 0 0.4em; colo
   .nav-mark-dot{ animation: none; }
   .panel-metrics div{ opacity: 1; animation: none; }
 }
+/* ============================================================
+   High-tech pass v2: hero chart graphic, typewriter, tilt, traces
+   ============================================================ */
+
+/* ---- ambient scrolling price-chart graphic behind the hero ---- */
+.hero{ position: relative; overflow: hidden; }
+.hero::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.10;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='200'%3E%3Cpolyline points='0,150 24,130 48,142 72,105 96,120 120,80 144,98 168,55 192,75 216,40 240,60' fill='none' stroke='%231F5D4C' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 240px 200px;
+  background-position: 0 bottom;
+  animation: chart-scroll 22s linear infinite;
+  pointer-events: none;
+}
+.hero-inner, .hero-panel{ position: relative; z-index: 1; }
+@keyframes chart-scroll{
+  from{ background-position-x: 0; }
+  to{ background-position-x: -240px; }
+}
+
+/* ---- typewriter cursor ---- */
+.type-cursor{ color: var(--signal); font-weight: 600; }
+.type-cursor-blink{ animation: cursor-blink 1s step-end infinite; }
+@keyframes cursor-blink{ 0%, 100%{ opacity: 1; } 50%{ opacity: 0; } }
+
+/* ---- hero panel: give the tilt effect somewhere to breathe ---- */
+.hero-panel{
+  transition: transform .15s ease-out, box-shadow .3s ease;
+}
+.hero-panel:hover{
+  box-shadow: 0 20px 50px rgba(18,24,27,0.14);
+}
+
+/* ---- animated "signal trace" traveling along each section's top border ---- */
+.section{ position: relative; }
+.section::before{
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -140px;
+  height: 1px;
+  width: 140px;
+  background: linear-gradient(90deg, transparent, var(--signal), transparent);
+  opacity: 0.8;
+  animation: trace-travel 7s ease-in-out infinite;
+  animation-delay: calc(var(--trace-delay, 0) * 1s);
+  pointer-events: none;
+}
+.section:nth-of-type(2)::before{ --trace-delay: 1.5; }
+.section:nth-of-type(3)::before{ --trace-delay: 3; }
+.section:nth-of-type(4)::before{ --trace-delay: 4.5; }
+.section:nth-of-type(5)::before{ --trace-delay: 6; }
+@keyframes trace-travel{
+  0%{ left: -140px; }
+  100%{ left: 100%; }
+}
+
+/* ---- reduced motion: kill the new heavy-ish effects cleanly ---- */
+@media (prefers-reduced-motion: reduce){
+  .hero::before{ animation: none; }
+  .section::before{ animation: none; opacity: 0; }
+  .hero-panel{ transform: none !important; }
+}
