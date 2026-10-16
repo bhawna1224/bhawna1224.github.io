@@ -3,73 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050816">
 <title>Bhawna Bhauryal — Quantitative &amp; Applied ML Engineering</title>
 <meta name="description" content="Portfolio of Bhawna Bhauryal — backtesting engines, applied computer vision, and data-driven ML systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,500&family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<noscript><style>.preloader{display:none}body.is-loading{overflow:auto}</style></noscript>
 </head>
-<body>
+<body class="is-loading">
+<a class="skip" href="#quant">Skip to projects</a>
 
-<div class="grid-bg" aria-hidden="true"></div>
+<div class="preloader" id="preloader" aria-hidden="true">
+  <svg viewBox="0 0 200 200" class="pre-mark"><circle cx="100" cy="100" r="84" class="pre-ring"/><text x="100" y="118" text-anchor="middle" class="pre-text">BB</text></svg>
+  <div class="pre-meta"><span>BHAWNA BHAURYAL</span><b id="preCount">000</b></div>
+  <div class="pre-line"><i id="preLine"></i></div>
+</div>
 
-<!-- ============ NAV ============ -->
-<nav class="nav" id="nav">
-  <a href="#top" class="nav-mark">BB<span class="nav-mark-dot">·</span></a>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+<canvas id="atmos" aria-hidden="true"></canvas>
+<canvas id="trail" aria-hidden="true"></canvas>
+<div class="cursor" id="cursor" aria-hidden="true"><div class="cursor-ring"><span class="cursor-label"></span></div><div class="cursor-core"></div></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><i id="progress"></i></div>
+
+<nav class="nav" id="nav" aria-label="Primary">
+  <a href="#top" class="nav-mark" data-magnetic data-cursor="light" aria-label="Back to top">B<span>B</span></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
   <div class="nav-links" id="navLinks">
-    <a href="#quant">Quant &amp; Finance</a>
-    <a href="#applied-ml">Applied ML / CV</a>
-    <a href="#nlp">NLP / AI</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact" class="nav-cta">Contact</a>
+    <i class="nav-ind" id="navInd"></i>
+    <a href="#quant" data-cursor="light">Quant &amp; Finance</a>
+    <a href="#applied-ml" data-cursor="light">Applied ML / CV</a>
+    <a href="#nlp" data-cursor="light">NLP / AI</a>
+    <a href="#experience" data-cursor="light">Experience</a>
+    <a href="#skills" data-cursor="light">Skills</a>
+    <a href="#contact" class="nav-cta" data-cursor="light">Contact</a>
   </div>
 </nav>
-  
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>SHARPE 0.72</span><span class="ticker-sep">&bull;</span>
-    <span>MAX DD 29.8%</span><span class="ticker-sep">&bull;</span>
-    <span>PROFIT FACTOR 4.93</span><span class="ticker-sep">&bull;</span>
-    <span>KDB-X MCP &mdash; 6 CUSTOM TOOLS</span><span class="ticker-sep">&bull;</span>
-    <span>TICKWATCH &mdash; LIVE BINANCE FEED</span><span class="ticker-sep">&bull;</span>
-    <span>OBJECT MEASUREMENT 88.89% ACC</span><span class="ticker-sep">&bull;</span>
-    <span>SARCASM DETECTION 86% ACC</span><span class="ticker-sep">&bull;</span>
-    <!-- repeat once, identical, for seamless loop -->
-    <span>SHARPE 0.72</span><span class="ticker-sep">&bull;</span>
-    <span>MAX DD 29.8%</span><span class="ticker-sep">&bull;</span>
-    <span>PROFIT FACTOR 4.93</span><span class="ticker-sep">&bull;</span>
-    <span>KDB-X MCP &mdash; 6 CUSTOM TOOLS</span><span class="ticker-sep">&bull;</span>
-    <span>TICKWATCH &mdash; LIVE BINANCE FEED</span><span class="ticker-sep">&bull;</span>
-    <span>OBJECT MEASUREMENT 88.89% ACC</span><span class="ticker-sep">&bull;</span>
-    <span>SARCASM DETECTION 86% ACC</span><span class="ticker-sep">&bull;</span>
-  </div>
-</div>
-  
-<!-- ============ HERO ============ -->
+
 <header class="hero" id="top">
+  <div class="hero-orb" id="orb" data-depth="1" aria-hidden="true">
+    <div class="orb-stage"><div class="orb-rings">
+      <svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="290" class="r1"/><circle cx="300" cy="300" r="236" class="r2"/><circle cx="300" cy="300" r="180" class="r3"/>
+      <g class="ticks"><line x1="300" y1="6" x2="300" y2="28" transform="rotate(0 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(6 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(12 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(18 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(24 300 300)"/><line x1="300" y1="6" x2="300" y2="28" transform="rotate(30 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(36 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(42 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(48 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(54 300 300)"/><line x1="300" y1="6" x2="300" y2="28" transform="rotate(60 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(66 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(72 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(78 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(84 300 300)"/><line x1="300" y1="6" x2="300" y2="28" transform="rotate(90 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(96 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(102 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(108 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(114 300 300)"/><line x1="300" y1="6" x2="300" y2="28" transform="rotate(120 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(126 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(132 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(138 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(144 300 300)"/><line x1="300" y1="6" x2="300" y2="28" transform="rotate(150 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(156 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(162 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(168 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(174 300 300)"/><line x1="300" y1="6" x2="300" y2="28" transform="rotate(180 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(186 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(192 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(198 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(204 300 300)"/><line x1="300" y1="6" x2="300" y2="28" transform="rotate(210 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(216 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(222 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(228 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(234 300 300)"/><line x1="300" y1="6" x2="300" y2="28" transform="rotate(240 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(246 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(252 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(258 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(264 300 300)"/><line x1="300" y1="6" x2="300" y2="28" transform="rotate(270 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(276 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(282 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(288 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(294 300 300)"/><line x1="300" y1="6" x2="300" y2="28" transform="rotate(300 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(306 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(312 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(318 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(324 300 300)"/><line x1="300" y1="6" x2="300" y2="28" transform="rotate(330 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(336 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(342 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(348 300 300)"/><line x1="300" y1="6" x2="300" y2="16" transform="rotate(354 300 300)"/></g></svg>
+    </div>
+    <div class="orb-sphere"></div>
+    <span class="tag t1">N 28.61° / E 77.21°</span><span class="tag t2">Ø 0.72 SHARPE</span><span class="tag t3">FIG. 01 — AURUM</span>
+  </div></div>
+
   <div class="hero-inner">
-    <p class="eyebrow">CS GRADUATE &mdash; B.SC. (HONS) WITH RESEARCH &mdash; GPA 8.94/10</p>
-    <h1 class="hero-title">Bhawna Bhauryal</h1>
-    <p class="hero-role">Quantitative Developer &amp; Applied ML Engineer</p>
-    <p class="hero-statement">
-      I landed in computer science by circumstance, not by design &mdash; but once there, I chose to point it at markets: rigorous, data-driven, and unforgiving of sloppy reasoning. I'm now building the quant/fintech engineering skills to match that choice, one backtested strategy and one calibrated model at a time.
-    </p>
-    <div class="hero-cta">
-      <a href="#quant" class="btn btn-primary">View projects</a>
-      <a href="https://github.com/bhawna1224" class="btn btn-ghost" target="_blank" rel="noopener">GitHub &rarr;</a>
-      <a href="https://www.linkedin.com/in/bhawnabhauryal" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+    <p class="eyebrow hero-eyebrow">CS GRADUATE &mdash; B.SC. (HONS) WITH RESEARCH &mdash; GPA 8.94/10</p>
+    <h1 class="hero-title" aria-label="Bhawna Bhauryal"><span class="ln l1" data-split>Bhawna</span><span class="ln l2" data-split>Bhauryal</span></h1>
+    <div class="hero-lower">
+      <p class="hero-role">Quantitative Developer &amp; Applied ML Engineer</p>
+      <p class="hero-statement">I landed in computer science by circumstance, not by design &mdash; but once there, I chose to point it at markets: rigorous, data-driven, and unforgiving of sloppy reasoning. I'm now building the quant/fintech engineering skills to match that choice, one backtested strategy and one calibrated model at a time.</p>
+      <div class="hero-cta">
+        <a href="#quant" class="btn btn-primary" data-magnetic data-cursor="EXPLORE"><span>View projects</span></a>
+        <a href="https://github.com/bhawna1224" class="btn btn-ghost" target="_blank" rel="noopener" data-magnetic data-cursor="OPEN"><span>GitHub &rarr;</span></a>
+        <a href="https://www.linkedin.com/in/bhawnabhauryal" class="btn btn-ghost" target="_blank" rel="noopener" data-magnetic data-cursor="OPEN"><span>LinkedIn &rarr;</span></a>
+      </div>
     </div>
   </div>
-
-  <div class="hero-panel" aria-hidden="true">
-    <div class="bracket bracket-tl"></div>
-    <div class="bracket bracket-tr"></div>
-    <div class="bracket bracket-bl"></div>
-    <div class="bracket bracket-br"></div>
+  <div class="hero-panel" data-depth="0.5" aria-hidden="true">
     <p class="panel-label">BACKTEST READOUT &mdash; AAPL, 2020&ndash;2024 &mdash; ILLUSTRATIVE</p>
     <svg viewBox="0 0 460 220" class="equity-svg" id="equitySvg">
       <line x1="0" y1="55" x2="460" y2="55" class="grid-line"/>
@@ -91,6 +86,26 @@
       <div><b>4.93</b><small>Profit factor</small></div>
     </div>
   </div>
+  <div class="scroll-cue" aria-hidden="true"><i></i><span>Scroll</span></div>
+  <div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>SHARPE 0.72</span><span class="ticker-sep">&bull;</span>
+    <span>MAX DD 29.8%</span><span class="ticker-sep">&bull;</span>
+    <span>PROFIT FACTOR 4.93</span><span class="ticker-sep">&bull;</span>
+    <span>KDB-X MCP &mdash; 6 CUSTOM TOOLS</span><span class="ticker-sep">&bull;</span>
+    <span>TICKWATCH &mdash; LIVE BINANCE FEED</span><span class="ticker-sep">&bull;</span>
+    <span>OBJECT MEASUREMENT 88.89% ACC</span><span class="ticker-sep">&bull;</span>
+    <span>SARCASM DETECTION 86% ACC</span><span class="ticker-sep">&bull;</span>
+    <!-- repeat once, identical, for seamless loop -->
+    <span>SHARPE 0.72</span><span class="ticker-sep">&bull;</span>
+    <span>MAX DD 29.8%</span><span class="ticker-sep">&bull;</span>
+    <span>PROFIT FACTOR 4.93</span><span class="ticker-sep">&bull;</span>
+    <span>KDB-X MCP &mdash; 6 CUSTOM TOOLS</span><span class="ticker-sep">&bull;</span>
+    <span>TICKWATCH &mdash; LIVE BINANCE FEED</span><span class="ticker-sep">&bull;</span>
+    <span>OBJECT MEASUREMENT 88.89% ACC</span><span class="ticker-sep">&bull;</span>
+    <span>SARCASM DETECTION 86% ACC</span><span class="ticker-sep">&bull;</span>
+  </div>
+</div>
 </header>
 
 <main>
@@ -103,10 +118,10 @@
 </div>
 
 <article class="card card-featured">
-<div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+<i class="bracket bracket-tl"></i><i class="bracket bracket-br"></i>
 <div class="card-head">
 <h3>Agentic kdb+/q Trading System</h3>
-<a href="https://github.com/bhawna1224/kdb-x-mcp-server" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+<a href="https://github.com/bhawna1224/kdb-x-mcp-server" target="_blank" rel="noopener" class="card-link" data-cursor="OPEN" data-magnetic>Repo &rarr;</a>
 </div>
 <p class="card-tag">kdb+/q &middot; MCP (Model Context Protocol) &middot; Python &middot; extends KX Systems' official server</p>
 <p class="card-problem"><b>Problem.</b> Manually tuning a trading strategy's parameters is slow and unprincipled &mdash; and most "autonomous agent" demos never get tested past the happy path, so no one actually knows whether the agent reasons correctly when a strategy fails or the infrastructure breaks.</p>
@@ -120,10 +135,10 @@
 </article>
 
 <article class="card">
-<div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+<i class="bracket bracket-tl"></i><i class="bracket bracket-br"></i>
 <div class="card-head">
 <h3>Backtesting Engine</h3>
-<a href="https://github.com/bhawna1224/backtesting-engine" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+<a href="https://github.com/bhawna1224/backtesting-engine" target="_blank" rel="noopener" class="card-link" data-cursor="OPEN" data-magnetic>Repo &rarr;</a>
 </div>
 <p class="card-tag">Vectorized Python &middot; Pandas &middot; pytest</p>
 <p class="card-problem"><b>Problem.</b> Most self-taught backtests quietly leak future information into their signals and report returns with no honest benchmark &mdash; which makes them worthless as evidence of skill.</p>
@@ -139,10 +154,10 @@
 </article>
 
 <article class="card">
-<div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+<i class="bracket bracket-tl"></i><i class="bracket bracket-br"></i>
 <div class="card-head">
 <h3>Real-Time Tick Data Pipeline (TickWatch)</h3>
-<a href="https://github.com/bhawna1224/TickWatch" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+<a href="https://github.com/bhawna1224/TickWatch" target="_blank" rel="noopener" class="card-link" data-cursor="OPEN" data-magnetic>Repo &rarr;</a>
 </div>
 <p class="card-tag">kdb+/q &middot; Tickerplant / RDB / HDB &middot; Binance WebSocket &middot; Python &middot; scikit-learn</p>
 <p class="card-problem"><b>Problem.</b> Real market-data infrastructure has to ingest live ticks, survive process restarts, archive historically, and separate genuine anomalies from ordinary noise or trend &mdash; without silently breaking on the ties, skew, and non-stationarity that naive scoring methods miss on real tick data.</p>
@@ -153,10 +168,10 @@
 
 <div class="card-grid">
 <article class="card">
-<div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+<i class="bracket bracket-tl"></i><i class="bracket bracket-br"></i>
 <div class="card-head">
 <h3>End-to-End Sales Forecasting</h3>
-<a href="https://github.com/bhawna1224/END-TO-END-SALES-FORECASTING-SOLUTION" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+<a href="https://github.com/bhawna1224/END-TO-END-SALES-FORECASTING-SOLUTION" target="_blank" rel="noopener" class="card-link" data-cursor="OPEN" data-magnetic>Repo &rarr;</a>
 </div>
 <p class="card-tag">XGBoost &middot; SARIMA &middot; Prophet &middot; Optuna</p>
 <p class="card-problem"><b>Problem.</b> Store-level demand forecasting (Rossmann dataset) needs to generalize across time, not just fit historical noise.</p>
@@ -166,10 +181,10 @@
 </article>
 
 <article class="card">
-<div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+<i class="bracket bracket-tl"></i><i class="bracket bracket-br"></i>
 <div class="card-head">
 <h3>Consent Transparency Engine</h3>
-<a href="https://github.com/bhawna1224/consent-transparency-engine" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+<a href="https://github.com/bhawna1224/consent-transparency-engine" target="_blank" rel="noopener" class="card-link" data-cursor="OPEN" data-magnetic>Repo &rarr;</a>
 </div>
 <p class="card-tag">React &middot; FastAPI &middot; Rule-based scoring &middot; Hackathon build</p>
 <p class="card-problem"><b>Problem.</b> Consent and data-sharing agreements bury risk in dense legal language that most users never read.</p>
@@ -189,7 +204,7 @@
 
   <div class="card-grid">
     <article class="card">
-      <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+      <i class="bracket bracket-tl"></i><i class="bracket bracket-br"></i>
       <div class="card-head">
         <h3>Single-Camera 3D Object Measurement</h3>
         <span class="card-tag-inline">Capgemini &middot; Feb&ndash;Mar 2026</span>
@@ -205,10 +220,10 @@
     </article>
 
     <article class="card">
-      <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+      <i class="bracket bracket-tl"></i><i class="bracket bracket-br"></i>
       <div class="card-head">
         <h3>Analysis Recommendation Engine <span class="dim">(Dissertation)</span></h3>
-        <a href="https://github.com/bhawna1224/AutoInsight-Automated-Analysis-Recommendation-for-E-Commerce-Data" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+        <a href="https://github.com/bhawna1224/AutoInsight-Automated-Analysis-Recommendation-for-E-Commerce-Data" target="_blank" rel="noopener" class="card-link" data-cursor="OPEN" data-magnetic>Repo &rarr;</a>
       </div>
       <p class="card-tag">Rule-based AKB &middot; Random Forest &middot; LLM reasoning</p>
       <p class="card-problem"><b>Problem.</b> Non-technical users can't reliably choose the right analytical method for a given e-commerce dataset.</p>
@@ -228,10 +243,10 @@
 
   <div class="card-grid">
     <article class="card">
-      <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+      <i class="bracket bracket-tl"></i><i class="bracket bracket-br"></i>
       <div class="card-head">
         <h3>Reddit Persona Generator</h3>
-        <a href="https://github.com/bhawna1224/reddit-persona-generator" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+        <a href="https://github.com/bhawna1224/reddit-persona-generator" target="_blank" rel="noopener" class="card-link" data-cursor="OPEN" data-magnetic>Repo &rarr;</a>
       </div>
       <p class="card-tag">LLM application &middot; Evidence-binding &middot; Evaluation framework</p>
       <p class="card-problem"><b>Problem.</b> LLM-generated user personas are easy to make and easy to make up &mdash; hallucinated traits look just as confident as grounded ones.</p>
@@ -240,10 +255,10 @@
     </article>
 
     <article class="card">
-      <div class="bracket bracket-tl"></div><div class="bracket bracket-br"></div>
+      <i class="bracket bracket-tl"></i><i class="bracket bracket-br"></i>
       <div class="card-head">
         <h3>Sarcasm Detection</h3>
-        <a href="https://github.com/bhawna1224/Sarcasm-Detection" target="_blank" rel="noopener" class="card-link">Repo &rarr;</a>
+        <a href="https://github.com/bhawna1224/Sarcasm-Detection" target="_blank" rel="noopener" class="card-link" data-cursor="OPEN" data-magnetic>Repo &rarr;</a>
       </div>
       <p class="card-tag">CNN-BiLSTM + Attention &middot; Word2Vec</p>
       <p class="card-problem"><b>Problem.</b> Sarcasm detection in short text headlines, where literal wording contradicts intended meaning.</p>
@@ -294,104 +309,41 @@
     <h2>Breadth</h2>
   </div>
   <div class="chip-row">
-    <a href="https://github.com/bhawna1224/chat-n-schedule" target="_blank" rel="noopener" class="chip">chat-n-schedule <small>LangGraph agent + Google Calendar</small></a>
-    <a href="https://github.com/bhawna1224/BlockTrace" target="_blank" rel="noopener" class="chip">BlockTrace <small>Solidity supply-chain DApp</small></a>
-    <a href="https://github.com/bhawna1224/book-review-platform" target="_blank" rel="noopener" class="chip">book-review-platform <small>Full-stack CRUD app</small></a>
-    <a href="https://github.com/bhawna1224/AR_Shopping_App" target="_blank" rel="noopener" class="chip">AR_Shopping_App <small>Augmented-reality product preview</small></a>
+    <a href="https://github.com/bhawna1224/chat-n-schedule" target="_blank" rel="noopener" class="chip" data-cursor="OPEN">chat-n-schedule <small>LangGraph agent + Google Calendar</small></a>
+    <a href="https://github.com/bhawna1224/BlockTrace" target="_blank" rel="noopener" class="chip" data-cursor="OPEN">BlockTrace <small>Solidity supply-chain DApp</small></a>
+    <a href="https://github.com/bhawna1224/book-review-platform" target="_blank" rel="noopener" class="chip" data-cursor="OPEN">book-review-platform <small>Full-stack CRUD app</small></a>
+    <a href="https://github.com/bhawna1224/AR_Shopping_App" target="_blank" rel="noopener" class="chip" data-cursor="OPEN">AR_Shopping_App <small>Augmented-reality product preview</small></a>
   </div>
 </section>
 
+<section class="section section-skills" id="skills">
+  <div class="section-head"><p class="eyebrow">SKILLS</p><h2>The instruments I reach for</h2></div>
+  <ul class="skill-cloud"><li data-cursor="light"><span>Python</span></li><li data-cursor="light"><span>Pandas / NumPy</span></li><li data-cursor="light"><span>scikit-learn</span></li><li data-cursor="light"><span>PyTorch</span></li><li data-cursor="light"><span>TensorFlow</span></li><li data-cursor="light"><span>OpenCV</span></li><li data-cursor="light"><span>SQL</span></li><li data-cursor="light"><span>kdb+/q</span></li><li data-cursor="light"><span>MCP (Model Context Protocol)</span></li><li data-cursor="light"><span>XGBoost / Prophet / SARIMA</span></li><li data-cursor="light"><span>Flask / FastAPI</span></li><li data-cursor="light"><span>React</span></li><li data-cursor="light"><span>Git</span></li></ul>
+  <div class="skill-strip" aria-hidden="true"><div class="skill-strip-track">Python <b>/</b> Pandas / NumPy <b>/</b> scikit-learn <b>/</b> PyTorch <b>/</b> TensorFlow <b>/</b> OpenCV <b>/</b> SQL <b>/</b> kdb+/q <b>/</b> MCP (Model Context Protocol) <b>/</b> XGBoost / Prophet / SARIMA <b>/</b> Flask / FastAPI <b>/</b> React <b>/</b> Git <b>/</b> Python <b>/</b> Pandas / NumPy <b>/</b> scikit-learn <b>/</b> PyTorch <b>/</b> TensorFlow <b>/</b> OpenCV <b>/</b> SQL <b>/</b> kdb+/q <b>/</b> MCP (Model Context Protocol) <b>/</b> XGBoost / Prophet / SARIMA <b>/</b> Flask / FastAPI <b>/</b> React <b>/</b> Git</div></div>
+</section>
 </main>
-
-<!-- ============ FOOTER / CONTACT ============ -->
 <footer class="footer" id="contact">
-  <div class="footer-grid">
-    <div>
-      <p class="eyebrow">GET IN TOUCH</p>
-      <h2>Let's talk.</h2>
-      <div class="footer-links">
-        <a href="mailto:bhawnabhauryal1@gmail.com">bhawnabhauryal1@gmail.com</a>
-        <a href="https://www.linkedin.com/in/bhawnabhauryal" target="_blank" rel="noopener">LinkedIn &rarr;</a>
-        <a href="https://github.com/bhawna1224" target="_blank" rel="noopener">GitHub &rarr;</a>
-      </div>
-    </div>
-    <div>
-      <p class="eyebrow">SKILLS</p>
-      <p class="skills-list">
-        Python &middot; Pandas / NumPy &middot; scikit-learn &middot; PyTorch &middot; TensorFlow &middot; OpenCV &middot;
-        SQL &middot; kdb+/q &middot; MCP (Model Context Protocol) &middot; XGBoost / Prophet / SARIMA &middot;
-        Flask / FastAPI &middot; React &middot; Git
-      </p>
-      <div class="readout readout-sm footer-readout">
-        <div><b id="view-count">—</b><small>Page views</small></div>
-      </div>
-
-        <script>
-        fetch('https://bhawna1224.goatcounter.com/counter/TOTAL.json')
-          .then(r => r.json())
-          .then(d => {
-            document.getElementById('view-count').textContent = d.count;
-          })
-          .catch(() => {
-            document.getElementById('view-count').parentElement.style.display = 'none';
-          });
-        </script>
-    </div>
+  <div class="contact-glow" aria-hidden="true"></div>
+  <p class="eyebrow">GET IN TOUCH &mdash; FINAL SCENE</p>
+  <h2 class="contact-title"><span data-split>Let's talk.</span></h2>
+  <a class="contact-mail" href="mailto:bhawnabhauryal1@gmail.com" data-magnetic data-cursor="WRITE"><span>bhawnabhauryal1@gmail.com</span></a>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/bhawnabhauryal" target="_blank" rel="noopener" data-magnetic data-cursor="OPEN">LinkedIn &rarr;</a>
+    <a href="https://github.com/bhawna1224" target="_blank" rel="noopener" data-magnetic data-cursor="OPEN">GitHub &rarr;</a>
   </div>
-  <p class="footer-note">Built by Bhawna Bhauryal. All metrics on this page are reported from real project runs, benchmarked honestly &mdash; including where the results weren't flattering.</p>
+  <div class="footer-bar">
+    <div class="readout readout-sm footer-readout"><div><b id="view-count">—</b><small>Page views</small></div></div>
+    <p class="footer-note">Built by Bhawna Bhauryal. All metrics on this page are reported from real project runs, benchmarked honestly &mdash; including where the results weren't flattering.</p>
+    <button class="totop" id="toTop" data-magnetic data-cursor="light" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 20V5M5 11l7-7 7 7"/></svg></button>
+  </div>
+  <script>
+  fetch('https://bhawna1224.goatcounter.com/counter/TOTAL.json').then(function(r){return r.json()}).then(function(d){document.getElementById('view-count').textContent=d.count}).catch(function(){document.getElementById('view-count').parentElement.style.display='none'});
+  </script>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="script.js"></script>
-<script>
-(function(){
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var hasHover = window.matchMedia('(hover: hover)').matches;
-
-  /* ---- Typewriter effect on the hero role line ---- */
-  var roleEl = document.querySelector('.hero-role');
-  if (roleEl && !reduceMotion) {
-    var fullText = roleEl.textContent;
-    roleEl.textContent = '';
-    var cursor = document.createElement('span');
-    cursor.className = 'type-cursor';
-    cursor.textContent = '_';
-    roleEl.appendChild(cursor);
-    var i = 0;
-    function typeNext(){
-      if (i < fullText.length){
-        cursor.insertAdjacentText('beforebegin', fullText[i]);
-        i++;
-        setTimeout(typeNext, 32);
-      } else {
-        cursor.classList.add('type-cursor-blink');
-      }
-    }
-    setTimeout(typeNext, 400);
-  }
-
-  /* ---- Subtle 3D tilt on the hero instrument panel, following the cursor ---- */
-  var panel = document.querySelector('.hero-panel');
-  if (panel && hasHover && !reduceMotion) {
-    panel.style.transformStyle = 'preserve-3d';
-    panel.style.willChange = 'transform';
-    document.querySelector('.hero').addEventListener('mousemove', function(e){
-      var rect = panel.getBoundingClientRect();
-      var cx = rect.left + rect.width / 2;
-      var cy = rect.top + rect.height / 2;
-      var dx = (e.clientX - cx) / (rect.width / 2);
-      var dy = (e.clientY - cy) / (rect.height / 2);
-      var maxTilt = 6; // degrees, kept small on purpose
-      var rotY = Math.max(-1, Math.min(1, dx)) * maxTilt;
-      var rotX = Math.max(-1, Math.min(1, dy)) * -maxTilt;
-      panel.style.transform = 'perspective(900px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
-    });
-    document.querySelector('.hero').addEventListener('mouseleave', function(){
-      panel.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
-    });
-  }
-})();
-</script>
-<script data-goatcounter="https://bhawna1224.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>        
+<script data-goatcounter="https://bhawna1224.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
