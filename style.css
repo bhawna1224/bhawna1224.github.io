@@ -204,10 +204,10 @@ main{counter-reset:proj}
 
 /* skills */
 .skill-cloud{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.15em 0;align-items:baseline}
-.skill-cloud li{font:300 clamp(2.4rem,7vw,6.4rem)/1.2 var(--serif);letter-spacing:-.03em;color:var(--ivory);margin-right:.4em;transition:color .4s,transform .5s var(--ease)}
+.skill-cloud li{font:300 clamp(1.5rem,3.4vw,3rem)/1.3 var(--serif);letter-spacing:-.03em;color:var(--ivory);margin-right:.4em;transition:color .4s,transform .5s var(--ease)}
 .skill-cloud li:nth-child(3n){font-style:italic;color:var(--g)}
 .skill-cloud li:nth-child(4n+1){-webkit-text-stroke:1px var(--g);color:transparent}
-.skill-cloud li:hover{color:var(--g2);-webkit-text-stroke:0;transform:translateY(-6px) skewX(-6deg);text-shadow:0 0 40px rgba(212,175,105,.6)}
+.skill-cloud li:hover{color:var(--g2);-webkit-text-stroke:0;transform:translateY(-4px);text-shadow:0 0 40px rgba(212,175,105,.6)}
 .section-skills .section-head{margin-bottom:clamp(16px,2.5vw,32px)}
 .section-skills .section-head h2{margin-bottom:0}
 
