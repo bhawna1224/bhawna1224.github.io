@@ -255,7 +255,7 @@
       const row = $('.chip-row'), sec = $('.section-other');
       gsap.to(row, { x: () => -(row.scrollWidth - (innerWidth - parseFloat(getComputedStyle(sec).paddingLeft) * 2)), ease: 'none', scrollTrigger: { trigger: row, start: 'top 85%', end: 'top 20%', scrub: .8, invalidateOnRefresh: true } });
     });
-    gsap.from('.skill-cloud li', { autoAlpha: 0, y: 70, rotate: 3, duration: 1, stagger: .05, ease: 'expo.out', scrollTrigger: { trigger: '.skill-cloud', start: 'top 80%', once: true } });
+    gsap.from('.skill-cloud li', { autoAlpha: 0, y: 40, duration: 1, stagger: .04, ease: 'expo.out', clearProps: 'transform,opacity,visibility', scrollTrigger: { trigger: '.skill-cloud', start: 'top 85%', once: true } });
     gsap.from(chars[2] || [], { yPercent: 110, duration: 1.4, stagger: .04, ease: 'expo.out', scrollTrigger: { trigger: '.contact-title', start: 'top 85%', once: true } });
     gsap.from('.contact-mail,.footer-links,.footer-bar', { autoAlpha: 0, y: 40, stagger: .12, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.contact-mail', start: 'top 92%', once: true } });
     gsap.fromTo('.contact-glow', { scale: .6, opacity: .3 }, { scale: 1.1, opacity: 1, ease: 'none', scrollTrigger: { trigger: footer, start: 'top bottom', end: 'top 20%', scrub: true } });
