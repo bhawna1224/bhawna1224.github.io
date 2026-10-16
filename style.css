@@ -81,8 +81,7 @@ main,.hero,.footer{position:relative;z-index:2}
 .hero-inner{position:relative;z-index:3;max-width:1400px}
 .hero-title{font:300 clamp(3.4rem,11.2vw,12rem)/.85 var(--serif);letter-spacing:-.04em;margin:0 0 .25em;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:.22em;text-transform:none}
 .ln{display:block;overflow:hidden;padding:.08em .04em .12em}
-.ln.l1{font-style:italic}
-.ln.l2{font-weight:600}
+.ln{font-style:italic}
 @keyframes sheen{to{background-position:-300% 0}}
 .ch{display:inline-block;background:var(--gold-grad);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sheen 5s 2.4s ease-in-out 1}
 .ch.sp{width:.28em}
