@@ -209,9 +209,7 @@ main{counter-reset:proj}
 .skill-cloud li:nth-child(3n){font-style:italic;color:var(--g)}
 .skill-cloud li:nth-child(4n+1){-webkit-text-stroke:1px var(--g);color:transparent}
 .skill-cloud li:hover{color:var(--g2);-webkit-text-stroke:0;transform:translateY(-6px) skewX(-6deg);text-shadow:0 0 40px rgba(212,175,105,.6)}
-.skill-strip{margin:clamp(50px,8vw,110px) calc(var(--pad) * -1) 0;overflow:hidden;border-block:1px solid rgba(212,175,105,.2);padding:16px 0}
-.skill-strip-track{width:max-content;white-space:nowrap;font:500 .8rem var(--mono);letter-spacing:.3em;text-transform:uppercase;color:var(--g)}
-.skill-strip b{color:var(--g3);margin:0 1.4em}
+.section-skills .section-head{margin-bottom:clamp(16px,2.5vw,32px)}
 
 /* contact */
 .footer{margin-top:clamp(120px,16vw,240px);padding:clamp(80px,12vw,160px) var(--pad) 36px;text-align:left;overflow:hidden}
